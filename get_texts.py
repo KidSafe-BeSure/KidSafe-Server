@@ -1,6 +1,7 @@
 import facebook
 import sys
 
+## This method gets the user's text messages. 
 def get_texts(user, acsses_token):
     graph = facebook.GraphAPI(access_token=acsses_token, version='2.3')
 
@@ -23,7 +24,7 @@ def get_texts(user, acsses_token):
     #print sent_ins_msgs
     return recived_ins_msgs, sent_ins_msgs
 
-
+## This method check if a test message contains insulting words from the insulting_words.txt text file.
 def is_insulting(text):
     f = open("insulting_words.txt", "r")
     insulting_words = f.read().split("\n")
@@ -32,4 +33,3 @@ def is_insulting(text):
         if word in text:
             return True
     return False
-
